@@ -18,6 +18,7 @@
 
 package com.zwshao;
 
+import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
 /**
@@ -39,6 +40,9 @@ public class DataStreamJob {
 		// to building Flink applications.
 		final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
+		DataStreamSource<Long> longDataStreamSource = env.fromSequence(1, 10);
+
+		longDataStreamSource.print();
 		/*
 		 * Here, you can start creating your execution plan for Flink.
 		 *
